@@ -21,7 +21,7 @@ const Reservation: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('http://localhost:5000/send-email', {
+      const res = await fetch('https://restaurant-server-ilcb.onrender.com/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
