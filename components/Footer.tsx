@@ -1,67 +1,89 @@
-
 import React from 'react';
+import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const Contact: React.FC = () => {
   return (
-    <footer className="bg-zinc-950 text-white py-20">
+    <section id="contact" className="py-20 md:py-24 bg-gray-50 dark:bg-zinc-900/50">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <h2 className="text-3xl font-serif font-bold text-primary mb-6 tracking-tighter">L'ART CULINAIRE</h2>
-            <p className="text-zinc-400 max-w-sm mb-8 leading-relaxed">
-              Elevating the culinary landscape through passion, innovation, and an unwavering commitment to excellence. Join our refined community.
-            </p>
-            <div className="flex gap-4">
-              <input
-                type="email"
-                placeholder="Join our Newsletter"
-                className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 focus:outline-none focus:border-primary grow"
-              />
-              <button className="bg-primary text-zinc-950 font-bold px-6 py-3 rounded-lg hover:bg-white transition-colors">
-                Sign Up
-              </button>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+
+          {/* Contact Info */}
+          <div>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm md:text-base block mb-3 md:mb-4">
+              Get in Touch
+            </span>
+            <h2 className="text-3xl md:text-5xl font-serif mb-8 md:mb-12">Visit Our Sanctuary</h2>
+
+            <div className="space-y-6 md:space-y-8 mb-8 md:mb-12">
+              {/* Location */}
+              <div className="flex gap-4 md:gap-6 items-start">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-zinc-800 shadow-lg rounded-full flex items-center justify-center flex-shrink-0">
+                  <MapPin className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg md:text-xl mb-1">Our Location</h4>
+                  <p className="text-gray-500 dark:text-zinc-400 text-sm md:text-base">
+                    123 Gastronomy Lane, Suite 400<br />
+                    New York, NY 10001
+                  </p>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex gap-4 md:gap-6 items-start">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-zinc-800 shadow-lg rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg md:text-xl mb-1">Call Us</h4>
+                  <p className="text-gray-500 dark:text-zinc-400 text-sm md:text-base">+1 (212) 555-8899</p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex gap-4 md:gap-6 items-start">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-zinc-800 shadow-lg rounded-full flex items-center justify-center flex-shrink-0">
+                  <Mail className="text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg md:text-xl mb-1">Email Us</h4>
+                  <p className="text-gray-500 dark:text-zinc-400 text-sm md:text-base">concierge@lartculinaire.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div className="flex gap-3 md:gap-4">
+              {[Instagram, Facebook, Twitter].map((Icon, idx) => (
+                <a
+                  key={idx}
+                  href="#"
+                  className="w-10 h-10 md:w-12 md:h-12 border border-gray-300 dark:border-zinc-700 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary hover:text-zinc-950 transition-all duration-300"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Working Hours</h4>
-            <ul className="text-zinc-400 space-y-3">
-              <li className="flex justify-between">
-                <span>Mon - Thu:</span>
-                <span>6 PM - 11 PM</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Fri - Sat:</span>
-                <span>5 PM - 12 AM</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sunday:</span>
-                <span>Closed</span>
-              </li>
-            </ul>
+          {/* Map */}
+          <div className="h-64 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.472227744384!2d-73.98542832341498!3d40.750567935191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a145!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-3xl"
+            />
           </div>
 
-          <div>
-            <h4 className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Quick Links</h4>
-            <ul className="text-zinc-400 space-y-3">
-              <li><a href="#about" className="hover:text-primary transition-colors">Private Events</a></li>
-              <li><a href="#menu" className="hover:text-primary transition-colors">Tasting Menu</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Gift Cards</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Careers</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-500">
-          <p>© 2024 L'Art Culinaire. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 
-export default Footer;
+export default Contact;
